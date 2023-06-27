@@ -101,8 +101,10 @@ int BPRead(const std::string fname, const size_t N, int nSteps,
 int main(int argc, char **argv)
 {
     const std::vector<std::string> list_of_engines = {"BP4", "BP5"};
-    const size_t N = 6000;
-    int nSteps = 2, ret = 0;
+    size_t N = 6000;
+    if (argv[1])
+        N = atoi(argv[1]);
+    int nSteps = 10, ret = 0;
 
     Kokkos::initialize(argc, argv);
     {
